@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Blog</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Modern Blog</h1>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container" id="blog-container">
+      <!-- Dynamic Blogs Will Appear Here -->
+    </div>
+
+    <footer>
+      <p>&copy; 2023 Modern Blog. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      const blogPosts = [
+        {
+          title: "Exploring the Future of AI",
+          description:
+            "How AI is shaping the future of technology and our daily lives.",
+        },
+        {
+          title: "The Rise of Remote Work",
+          description:
+            "Why remote work is becoming the new norm and how to adapt.",
+        },
+        {
+          title: "Top 10 Travel Destinations in 2023",
+          description: "A guide to the best places to visit this year.",
+        },
+      ];
+
+      const blogContainer = document.getElementById("blog-container");
+
+      function generateBlogPosts() {
+        blogPosts.forEach((post) => {
+          const blogCard = document.createElement("div");
+          blogCard.classList.add("card");
+
+          blogCard.innerHTML = `
+        
+          <h2>${post.title}</h2>
+          <p>${post.description}</p>
+          <button>Read More</button>
+        `;
+
+          blogContainer.appendChild(blogCard);
+        });
+      }
+
+      generateBlogPosts();
+
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("nav-menu");
+
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
+    </script>
+  </body>
+</html>
